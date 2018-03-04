@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Battleship</title>
+    <link rel="stylesheet" href="component/main.css"/>
+    <link rel="stylesheet" href="component/battlefield/battlefield.css"/>
+    <link rel="stylesheet" href="component/ship/ship.css"/>
+    <script src="component/battlefield/battlefield.js" ></script>
+</head>
+<body>
+   <div class="body-wrap">
+       <div class="battlefields">
+       </div>
+   </div>
+<script>
+    var elem = document.querySelector('.battlefields');
+    var bf = new Battlefield({
+         elem : elem,
+         type: 'self'
+    });
+
+    bf.render();
+    bf.setPlayerName('Михаил');
+    var bf1 = new Battlefield({
+        elem : elem,
+        type: 'rival'
+    });
+
+    bf1.render();
+    bf1.setPlayerName('Компьютер');
+</script>
+</body>
+</html>

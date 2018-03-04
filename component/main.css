@@ -1,0 +1,9 @@
+.body-wrap {
+    min-width: 990px;
+    max-width: 1080px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 1;
+    background: #fff;
+    min-height: 100%;
+}

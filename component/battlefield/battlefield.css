@@ -1,0 +1,195 @@
+/* Поля для игры */
+.battlefields{
+    padding-top: 110px;
+}
+
+.battlefield {
+    position: relative;
+    display:inline-block;
+}
+
+.battlefield_self{
+    float:left;
+    margin-left: 130px;
+}
+
+.battlefield_rival{
+    float:right;
+    margin-right: 130px;
+}
+
+.battlefield__gap{
+    display: inline-block;
+    position: relative;
+    margin: 40px 0;
+}
+
+.battlefield__table{
+    margin: 0;
+    border-collapse: collapse;
+    cursor: default;
+    display: inline-block;
+    position: relative;
+}
+
+.battlefield__table-placeholder{
+    min-width: 340px;
+    min-height: 340px;
+}
+
+.battlefield-row{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.battlefield__cell{
+    cursor:pointer;
+    border: 1px solid #B4B4FF;
+    padding: 0;
+}
+
+.battlefield_self .battlefield__cell_busy {
+    border-color: rgba(0,0,255,.1);
+}
+
+.battlefield__cell_miss{
+    cursor: default;
+    background-color: #cecece;
+}
+
+.battlefield__cell_hit{
+    cursor: default;
+}
+
+.battlefield__cell-content{
+    position: relative;
+    height: 2em;
+    width: 2em;
+}
+
+.battlefield__cell_hit .battlefield__cell-content .z:before{
+    left: 50%;
+    width: 2px;
+    top: -25%;
+    height: 150%;
+    margin-top: 1px;
+}
+.battlefield__cell_hit .battlefield__cell-content .z:after{
+    top: 50%;
+    height: 2px;
+    left: -25%;
+    width: 150%;
+    margin-left: -1px;
+}
+
+.battlefield__cell_hit .battlefield__cell-content .z:after,
+.battlefield__cell_hit .battlefield__cell-content .z:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: red;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.battlefield__cell_miss .battlefield__cell-content .z {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 4px;
+    background: #333;
+    border-radius: 50%;
+    margin-top: -2px;
+    margin-left: -2px;
+}
+
+
+.battlefield__label{
+    font-size: 1.8em;
+    position: relative;
+    text-align: center;
+    bottom: -10px;
+}
+
+
+
+
+
+
+
+
+/* Окно результатов сбоку */
+
+
+.battlefield_self .battlefield-stat{
+    left: -120px;
+}
+
+.battlefield_rival .battlefield-stat{
+    right: -100px;
+}
+
+.battlefield-stat{
+    position: absolute;
+    top: 40px;
+}
+
+.ship-types{
+    display: inline-block;
+}
+
+.ship {
+    margin: 0 7px 13px 0;
+    display: block;
+    float: left;
+}
+.ship-type {
+    overflow: hidden;
+}
+
+.ship:last-child {
+    margin-right: 0;
+}
+
+
+.ship__killed .ship-part {
+    background: #ea6565;
+}
+
+.ship-part {
+    width: 7px;
+    height: 7px;
+    margin: 0 1px 0 0;
+    background: #8686ec;
+    display: block;
+    float: left;
+}
+
+
+/* Боковые маркеры строк и столбоцов*/
+.marker{
+    position:absolute;
+    font-size: 11px;
+    z-index: -1;
+}
+
+.marker__row{
+    left: -3em;
+    width: 2em;
+    text-align: right;
+    top: 1em;
+    height: 1em;
+}
+
+.marker__col{
+    top: -2em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}

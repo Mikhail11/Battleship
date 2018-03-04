@@ -1,0 +1,21 @@
+.ship-box {
+    z-index: 2;
+    left: 0;
+    top: 0;
+    border: 2px solid #00f;
+    background: rgba(0,0,255,.05);
+    position: absolute!important;
+    margin: -2px;
+}
+
+.ship-box_done{
+    border-color:red;
+}
+
+.ship-box_h{
+
+}
+
+.ship-box_v{
+
+}
