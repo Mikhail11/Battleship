@@ -51,7 +51,7 @@
     padding: 0;
 }
 
-.battlefield_self .battlefield__cell_busy {
+.battlefield_self .battlefield__cell_busy{
     border-color: rgba(0,0,255,.1);
 }
 
