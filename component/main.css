@@ -1,9 +1,46 @@
+body {
+    font-family: 'Roboto Regular', sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color:#fff;
+}
+
 .body-wrap {
+    background: inherit;
     min-width: 990px;
     max-width: 1080px;
     position: relative;
     margin: 0 auto;
     z-index: 1;
-    background: #fff;
+    min-height: 70%;
+    overflow: hidden;
+    padding: 0 20px;
+
+}
+
+.body-wrap:before{
+    content: '';
+    min-width: 990px;
+    max-width: 1080px;
     min-height: 100%;
+    background: inherit;
+    position: absolute;
+    box-shadow: inset 0 0 0 700px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: -2;
+}
+
+.body-wrap__header{
+    text-align: center;
+    padding:0 20px;
+}
+
+.body-wrap__h2{
+    font-size: 30px;
+    text-transform: uppercase;
 }

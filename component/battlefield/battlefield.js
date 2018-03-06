@@ -16,6 +16,7 @@ function Battlefield(obj){
         [1, 'singledeck']
     ];
 
+    this.killEnemy = 0;
     this.initArr = [];
     this.squadron = [];
 }
@@ -73,6 +74,7 @@ Battlefield.prototype._shoot = function(event){
 
         var ship = this.getShootedShip(x,y);
         if(ship){
+            this.killEnemy ++;
             if(this.fieldType == 'rival'){
                 ship.showShip();
             }
