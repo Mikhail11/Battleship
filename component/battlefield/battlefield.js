@@ -69,23 +69,30 @@ Battlefield.prototype._shoot = function(event){
         var td = target.closest('td');
         var x = td.dataset.x;
         var y = td.dataset.y;
+        var custom_event = new CustomEvent('gameover',{bubbles: true,
+            cancelable: true,
+            detail:{
+                initiator:this.fieldType
+            }});
 
         td.classList.add((this.initArr[y][x] ? 'battlefield__cell_hit' : 'battlefield__cell_miss'));
 
+        this.killEnemy += this.initArr[y][x];
+
         var ship = this.getShootedShip(x,y);
         if(ship){
-            this.killEnemy ++;
             if(this.fieldType == 'rival'){
                 ship.showShip();
             }
             ship.shootOnShip();
         }
+
+        if( this.killEnemy === 20){
+            this.field_div.dispatchEvent(custom_event);
+        }
     }
 };
 
-Battlefield.prototype.setMissedCells = function(x,y){
-    
-};
 Battlefield.prototype.getShootedShip = function(x,y){
     // Просматриваем координаты существующих кораблей и ищем среди них те,
     // у которых содержатся переданные координаты
@@ -104,6 +111,7 @@ Battlefield.prototype.getShootedShip = function(x,y){
 };
 
 Battlefield.prototype.setPlayerName = function(name){
+    this.playerName = name;
     //Устанавливает имя игрока для игрового поля
     var div = document.createElement('div');
     div.classList.add('battlefield__label');

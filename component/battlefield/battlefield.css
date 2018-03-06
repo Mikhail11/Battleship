@@ -114,7 +114,7 @@
     font-size: 1.8em;
     position: relative;
     text-align: center;
-    bottom: -10px;
+    bottom: 15px;
 }
 
 
@@ -128,7 +128,7 @@
 
 
 .battlefield_self .battlefield-stat{
-    left: -120px;
+    left: -100px;
 }
 
 .battlefield_rival .battlefield-stat{

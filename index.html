@@ -5,20 +5,47 @@
     <title>Battleship</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
           rel="stylesheet">
+    <link rel="stylesheet" href="component/bootstrap/bootstrap.css"/>
     <link rel="stylesheet" href="component/battlefield/battlefield.css"/>
     <link rel="stylesheet" href="component/ship/ship.css"/>
     <link rel="stylesheet" href="component/main.css"/>
 </head>
 <body>
+<div class="modal fade bs-named-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <h4 class="modal-title">Введите имя чтобы продолжить</h4>
+            <div class="modal-form">
+                <label for="name">Имя</label>
+                <input type="text" id="name"/>
+            </div>
+            <div class="modal-footer">
+                <button id="continue">Продолжить</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
     <div class="body-wrap">
         <div class="body-wrap__header"><h2 class="body-wrap__h2">Морское сражение</h2></div>
     </div>
    <script src="component/ship/ship.js" ></script>
    <script src="component/battlefield/battlefield.js" ></script>
    <script src="component/app/app.js" ></script>
+   <script src="component/bootstrap/jquery-3.3.1.min.js"></script>
+   <script src="component/bootstrap/bootstrap.min.js"></script>
 <script>
-    var app = new App(document.querySelector('.body-wrap'));
-    app.init();
+    $('.bs-named-modal-sm').modal('show');
+    $('#continue').on('click',function(){
+        var input =  $('#name').val();
+        if(input){
+            $('.bs-named-modal-sm').modal('hide');
+            var app = new App(document.querySelector('.body-wrap'),input);
+            app.init();
+
+        }
+    });
 </script>
 </body>
 </html>
