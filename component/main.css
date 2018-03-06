@@ -50,6 +50,9 @@ body {
     color: black;
     font-family: 'Roboto Regular', sans-serif;
 }
+.sm{
+    height:60px;
+}
 .modal-title{
     text-align: center;
     padding:15px 0;

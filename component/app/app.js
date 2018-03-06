@@ -37,12 +37,18 @@ App.prototype.init = function (){
     this.winner['rival'] = this.player.playerName;
 
     mainDiv.addEventListener('gameover',this.gameOverShow.bind(this));
-
+    this.mainDiv = mainDiv;
     this.computer.field_div.addEventListener('click', this.computerPlay.bind(this));
 };
 
 App.prototype.gameOverShow = function(event){
     this.gameOver = true;
+    var custom_event = new CustomEvent('showwin',{bubbles: true,
+        cancelable: true,
+        detail:{
+            message:'Выиграл ' + this.winner[event.detail.initiator]
+        }});
+    this.mainDiv.dispatchEvent(custom_event);
 };
 
 App.prototype.computerPlay = function(){

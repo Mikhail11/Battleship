@@ -27,6 +27,14 @@
     </div>
 </div>
 
+<div class="modal fade bs-notify-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content sm">
+            <h4 class="modal-title" id="notify" ></h4>
+        </div>
+    </div>
+</div>
+
     <div class="body-wrap">
         <div class="body-wrap__header"><h2 class="body-wrap__h2">Морское сражение</h2></div>
     </div>
@@ -36,16 +44,34 @@
    <script src="component/bootstrap/jquery-3.3.1.min.js"></script>
    <script src="component/bootstrap/bootstrap.min.js"></script>
 <script>
-    $('.bs-named-modal-sm').modal('show');
-    $('#continue').on('click',function(){
-        var input =  $('#name').val();
-        if(input){
-            $('.bs-named-modal-sm').modal('hide');
-            var app = new App(document.querySelector('.body-wrap'),input);
-            app.init();
+    // ининциализируем игрока по имени
+    var name = localStorage.getItem('name');
+    if(name && name != 'null'){
+        var app = new App(document.querySelector('.body-wrap'),name);
+        app.init();
+    } else {
+        $('.bs-named-modal-sm').modal('show');
+        $('#continue').on('click',function(){
+            var input =  $('#name').val();
+            if(input){
+                localStorage.setItem('name',input);
+                $('.bs-named-modal-sm').modal('hide');
+                var app = new App(document.querySelector('.body-wrap'),input);
+                app.init();
 
-        }
+            }
+        });
+    }
+
+    //Отлавливаем событие победы и выводим сообщение
+    $('.body-wrap').on('showwin',function(event){
+        $('#notify').text(event.detail.message);
+        $('.bs-notify-modal-sm').modal('show');
+        $('.bs-notify-modal-sm').on('hidden.bs.modal', function () {
+            location.reload();
+        })
     });
+
 </script>
 </body>
 </html>
